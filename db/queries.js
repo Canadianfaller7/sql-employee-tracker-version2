@@ -33,8 +33,29 @@ const viewAllEmployees = () => {
   );
 };
 
+const addDepartment = departmentName => {
+  dbConnection.query('INSERT INTO departments(name) VALUES(?)', [departmentName], (err, rows) => { 
+    if (err) throw new Error(err.message);
+
+    console.table(rows);
+  })
+}
+
+const addRole = (roleTitle, roleSalary, department) => {
+  dbConnection.query('INSERT INTO roles(title, salary, department_id VALUES(?, ?, ?)', [roleTitle, roleSalary, department], (err, rows) => { 
+    if (err) throw new Error(err.message);
+
+    console.table(rows);
+  })
+}
+
+// const addEmployee = () => {}
+
 module.exports = {
   viewAllDepartments,
   viewAllRoles,
   viewAllEmployees,
+  addDepartment,
+  addRole,
+  // addEmployee,
 };
