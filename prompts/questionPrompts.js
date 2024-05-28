@@ -20,7 +20,7 @@ const questions = () => {
         // 'Add a role',
         // 'Add an employee',
         // 'Update employee role',
-        'Quit',
+        'Quit' ,
       ],
     },
   ])
